@@ -1,0 +1,18 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+
+{% block main_content %}
+<div class="post">
+<h1 class="title">gallery</h1>
+<br />
+<div class="entry">
+{% for photo in photos %}
+<p style="text-align: center;">
+<img src="{{ photo.image.url }}" alt="">
+<br>{{photo.title}}</p>
+<hr>
+<br>
+{% endfor %}
+</div>
+</div>
+{% endblock main_content %}

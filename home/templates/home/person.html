@@ -1,0 +1,78 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+
+{% block main_content %}
+<div class="post">
+<h1 class="title">Team</h1>
+<br />
+<!-- <p class="meta"><small>Posted on October 24th, 2013 by <a href="#">Someone</a></small></p> -->
+<div class="entry">
+<table border="0" width="100%">
+  <tbody>
+    <tr>
+      <td style="width: 20%">
+{% if user.profile.image %}
+<img src="{{ user.profile.image.url }}" border="0">
+{% else %}
+<img src="{{STATIC_URL}}images/foto-puste.gif" border="0">
+{% endif %}
+	  </td>
+      <td>
+      <p><b>
+{{ user.first_name }} {{ user.last_name }}{% if user.profile.degree %}, {{user.profile.degree}}{% endif %}
+</b>
+{% if user.profile.position %}
+<br/>{{user.profile.position}}
+{% endif %}
+<br />
+{% if user.profile.spoiler %}
+<img src="{{ user.profile.spoiler.url }}" class="spoiler" alt="">
+{% else %}
+<a href="mailto:{{ user.email }}">{{ user.email }}</a>
+{% endif %}
+{% if user.profile.phone %}
+<br/>{{ user.profile.phone }}
+{% endif %}
+</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+{% if user.profile.about %}
+<h2>About me:</h2>
+<p>
+{{ user.profile.about|safe }}
+</p>
+{% endif %}
+
+{% if user.profile.research %}
+<h2>Research interests:</h2>
+<p>
+{{ user.profile.research|safe }}
+</p>
+{% endif %}
+
+{% if user.profile.publications %}
+<h2>Selected publications:</h2>
+<p>
+{{ user.profile.publications|safe }}
+</p>
+{% endif %}
+
+{% if user.profile.funding %}
+<h2>Funding:</h2>
+<p>
+{{ user.profile.funding|safe }}
+</p>
+{% endif %}
+
+{% if user.profile.my_dish %}
+<p>
+Speciality from my kitchen: {{ user.profile.my_dish }}
+</p>
+{% endif %}
+
+</div>
+</div>
+{% endblock main_content %}

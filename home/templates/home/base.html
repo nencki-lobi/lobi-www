@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<title>Laboratory of Brain Imaging</title>
+  <link media="screen" type="text/css" rel="stylesheet" href="{% static 'styl.css' %}" />
+  <link rel="shortcut icon" href="{% static 'images/lobi.ico' %}"/>
+</head>
+<body>
+
+<!--<div id="logo">
+<h1><a href="{{SERVER_URL}}/">LOBI</a></h1>
+<h2>laboratory of brain imaging</h2>
+</div>-->
+
+<div id="header">
+<a href="{{SERVER_URL}}/"><img src="{% static 'images/logo.jpg' %}" alt="logo"/></a>
+<div id="menu">
+<ol>
+  <li><a href="{{SERVER_URL}}/">Home</a>
+	<ul>
+  		<!--<li><a href="{{SERVER_URL}}/about_us">About us</a></li>-->
+		<li><a href="{{SERVER_URL}}/equipment">Equipment</a></li>
+		<li><a href="{{SERVER_URL}}/news">All news</a></li>
+	</ul>
+  </li>
+  <li><a href="{{SERVER_URL}}/team">Team</a></li>
+  <li><a href="{{SERVER_URL}}/research">Research</a>
+	<ul>
+		<li><a href="{{SERVER_URL}}/research/neuroimaging/">Neuroimaging</a></li>
+		<li><a href="{{SERVER_URL}}/research/behavioral/">Behavioral</a></li>
+	</ul>
+  </li>
+  <li><a href="{{SERVER_URL}}/publications">Publications</a></li>
+  <li><a href="{{SERVER_URL}}/courses">Events</a>
+	<ul>
+		<li><a href="{{SERVER_URL}}/courses/labmeeting/">Lab meetings</a></li>
+		<li><a href="{{SERVER_URL}}/courses/mruser/">MR User Club</a></li>
+		<li><a href="{{SERVER_URL}}/courses/labopening/">Lab Opening</a></li>
+	</ul>
+  </li>
+</ol>
+</div>
+</div>
+
+
+
+
+<hr />
+<div id="page">
+<div id="content">
+{% block main_content %}
+{% endblock main_content %}
+</div>
+</div>
+
+{#% load photos_tag %#}
+{#% photo_sample %#}
+
+<div class="sidebar" id="sidebar1">
+<h2><a
+ href="#"><b>Our laboratory</b></a></h2>
+<p><a href="{% static 'images/gallery1.jpg' %}"><img src="{% static 'images/gallery1.jpg' %}" border="0" /></a></p>
+<br /></div>
+
+<div style="clear: both;">&nbsp;</div>
+<hr /><!-- start footer -->
+<div id="footer">
+<p>Laboratory
+of Brain Imaging - Neurobiology Center<br />
+Polish Academy of Sciences
+3 Pasteur Street, 02-093 Warsaw, Poland<br />
+</p>
+<p>&copy; 2013 All Rights
+Reserved &nbsp;&bull;&nbsp; by <a href="{{SERVER_URL}}/">LOBI</a> <a href="{{SERVER_URL}}/team">Contact us</a></p>
+</div>
+<!-- end footer -->
+</body>
+</html>

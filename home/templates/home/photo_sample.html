@@ -1,0 +1,7 @@
+<div class="sidebar" id="sidebar1">
+<h2><a href="#"><b>Our laboratory</b></a></h2>
+{% for photo in photos %}
+<p><a href="{{SERVER_URL}}/gallery"><img src="{{photo.image.url}}" alt="photo" /></a></p>
+{% endfor %}
+<p><a href="{{SERVER_URL}}/gallery/">More photos in gallery</a></p>
+<br /></div>
