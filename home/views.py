@@ -49,7 +49,8 @@ def gallery(request):
 
 def person(request, item_id):
 	user = User.objects.get(id=item_id)
-	return render_to_response('home/person.html', {'user' :  user})
+	has_social = any(x is not None for x in (user.profile.orcid, user.profile.scholar, user.profile.github))
+	return render_to_response('home/person.html', {'user':  user, 'show_social': has_social})
 
 def about(request, item_id):
 	item = Research.objects.get(id=item_id)
