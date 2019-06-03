@@ -36,6 +36,8 @@
 {% if course.bold %} </b> {% endif %}
 </h2>
 {{ course.people }}</br></br>
+<details>
+<summary>Details</summary>
 {{ course.about|safe }}
 </br>{% if course.link %}
 <a href="{{course.link}}" target="_blank">More information</a>
@@ -45,6 +47,7 @@
 <img src="{{ course.image.url }}" alt="">
 {% endif %}
 </p>
+</details>
 {% endfor %}
 
 </div>
