@@ -47,6 +47,38 @@
 </p>
 {% endif %}
 
+{% if show_social %}
+<h2>Online:</h2>
+<p>
+  {% if user.profile.orcid %}
+  <div itemscope itemtype="https://schema.org/Person">
+    <a itemprop="sameAs" content="https://orcid.org/{{ user.profile.orcid }}" href="https://orcid.org/{{ user.profile.orcid }}" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;">
+      <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">
+      https://orcid.org/{{ user.profile.orcid }}</a>
+  </div>
+  {% endif %}
+
+  {% if user.profile.github %}
+  <div>
+    <a href="https://github.com/{{ user.profile.github }}/">
+      <img src="{% static 'images/GitHub-Mark-32px.png' %}", height="16", width="16", style="width:1em;margin-right:.5em;", alt="GitHub mark">
+      github.com/{{user.profile.github}}
+    </a>
+  </div>
+  {% endif %}
+
+  {% if user.profile.scholar %}
+  <div>
+    <a href="https://scholar.google.com/citations?user={{ user.profile.scholar }}">
+      <img src="{% static 'images/Google-Scholar-Icon.png' %}", height="16", width="16", style="width:1em;margin-right:.5em;", alt="Google Scholar icon">
+      Google Scholar
+    </a>
+  </div>
+  {% endif %}
+
+</p>
+{% endif %}
+
 {% if user.profile.research %}
 <h2>Research interests:</h2>
 <p>
