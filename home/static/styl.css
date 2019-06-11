@@ -101,7 +101,7 @@ hr {
 
 #menu {
 	height: 47px;
-	width: 976px;
+	width: 900px;
 }
 
       /* ------------------------CZĘŚĆ-GÓRNA-MENU------------------------ */
@@ -138,10 +138,10 @@ hr {
       /* wygląd elementów - li - wszystkich dzieci elementu - ol */
       #menu ol > li {
         float:left;
-        width:165px;
+        width:150px;
         background-color:#f33900;
         height:2em;
-		
+
       }
 
       /* wygląd elementu - li - pierwszego dziecka elementu - ol */
@@ -304,7 +304,7 @@ hr {
 }
 
 #sidebar1 {
-	width: 150px;
+	width: 240px;
 	padding: 0px 20px 0px 20px;
 	background: #F2F2F2;
 }
@@ -364,6 +364,3 @@ hr {
 	padding: 2px 7px;
 	color: #FFFFFF;
 }
-
-
-

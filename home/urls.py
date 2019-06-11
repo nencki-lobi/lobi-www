@@ -17,7 +17,11 @@ urlpatterns = [
 	url(r'^gallery/', views.gallery, name='gallery'),
 	url(r'^team/(?P<item_id>\d+)/$', views.person),
 	url(r'^research/(?P<item_id>\d+)/$', views.about),
-	url(r'^courses/mruser/', views.courses_mruser, name='courses_mruser'),
-	url(r'^courses/labmeeting/', views.courses_labmeeting, name='courses_labmeeting'),
-	url(r'^courses/labopening/', views.courses_labopening, name='courses_labopening'),
+	url(r'^courses/mruser/', views.courses_mruser, name='courses_mruser'), #to remove
+	url(r'^courses/labmeeting/', views.courses_labmeeting, name='courses_labmeeting'), #to remove
+	url(r'^courses/labopening/', views.courses_labopening, name='courses_labopening'), #to remove
+    url(r'^public/$', views.public),
+    url(r'^public/media/$', views.public),
+    url(r'^public/events/$', views.public),
+    url(r'^robots/$', views.robots), #temporary
 ]

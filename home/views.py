@@ -72,3 +72,11 @@ def courses_labopening(request):
 def news(request):
 	news = News.objects.all().order_by('-date')
 	return render_to_response('home/news.html', {'news' : news})
+
+def public(request):
+	#news = News.objects.all().order_by('-date')
+	return render_to_response('home/robots.html')
+
+def robots(request):
+	#news = News.objects.all().order_by('-date')
+	return render_to_response('home/robots.html')

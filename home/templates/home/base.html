@@ -15,7 +15,8 @@
 </div>-->
 
 <div id="header">
-<a href="{{SERVER_URL}}/"><img src="{% static 'images/logo.jpg' %}" alt="logo"/></a>
+<a href="{{SERVER_URL}}/"><img src="{% static 'images/logo.jpg' %}" style="height: 144px; width: 300px"/></a>
+<a href="http://en.nencki.edu.pl/"><img src="{% static 'images/nencki-logo_eng.png' %}" style="height: 144px; width: 439px; float: right;"/></a>
 <div id="menu">
 <ol>
   <li><a href="{{SERVER_URL}}/">Home</a>
@@ -33,12 +34,17 @@
 	</ul>
   </li>
   <li><a href="{{SERVER_URL}}/publications">Publications</a></li>
-  <li><a href="{{SERVER_URL}}/courses">Events</a>
+  <li><a href="{{SERVER_URL}}/courses">Meetings</a>
 	<ul>
-		<li><a href="{{SERVER_URL}}/courses/labmeeting/">Lab meetings</a></li>
-		<li><a href="{{SERVER_URL}}/courses/mruser/">MR User Club</a></li>
-		<li><a href="{{SERVER_URL}}/courses/labopening/">Lab Opening</a></li>
+		<li><a href="{{SERVER_URL}}/courses/">Seminars</a></li>
+		<li><a href="{{SERVER_URL}}/robots">Workshops</a></li>
 	</ul>
+  </li>
+  <li><a href="{{SERVER_URL}}/public">Public</a>
+  <ul>
+    <li><a href="{{SERVER_URL}}/public/media/">Media</a></li>
+    <li><a href="{{SERVER_URL}}/public/events/">Events</a></li>
+  </ul>
   </li>
 </ol>
 </div>
