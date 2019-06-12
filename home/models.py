@@ -21,7 +21,7 @@ class Profile(models.Model):
 	scholar = models.CharField("Google scholar ID", max_length=32, blank=True, help_text="Enter just the ID. This is part of an url, e.g. https://scholar.google.pl/citations?user=<strong>qTDPssQAAAAJ</strong>&hl=pl")
 	image = models.ImageField("Face",upload_to="users",blank=True)
 	my_dish = models.CharField("I can cook...",max_length=200,blank=True)
-    
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -57,7 +57,7 @@ class Research(models.Model):
 	web = models.CharField("Frame content (start with http://...)",max_length=500,blank=True)
 	#inter_exter = models.BooleanField("Internal LOBI project")
 	research_type = models.CharField(max_length=3,choices=RESEARCH_CHOICES,default=NEURO)
-	
+
 	def __str__(self):
 		return self.title
 
@@ -72,7 +72,7 @@ class Publication(models.Model):
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
 	link = models.CharField("External link (start with http://...)",max_length=500,blank=True)
-	
+
 	def __str__(self):
 		return self.title
 
@@ -102,7 +102,7 @@ class Meeting(models.Model):
 		if datetime.date.today() < self.starts.date():
 			return True
 		return False
-	
+
 	def __str__(self):
 		return self.title
 
@@ -111,8 +111,8 @@ class Meeting(models.Model):
 
 class Photo(models.Model):
 	title = models.CharField(max_length=200)
-	image = models.ImageField("foto",upload_to="photos")
-	
+	image = models.ImageField("Image file",upload_to="photos")
+
 	def __str__(self):
 		return self.title
 
@@ -121,10 +121,10 @@ class News(models.Model):
 	title = models.CharField("Title",max_length=200)
 	content = models.TextField("News content (html allowed)",max_length=2000)
 	image = models.ImageField("News image",upload_to="news",blank=True)
-	
+
 	def __str__(self):
 		return self.title
-		
+
 	class Meta:
 		verbose_name_plural = "News"
 
@@ -140,9 +140,9 @@ class Public(models.Model):
 	content = models.TextField("News content (html allowed)",max_length=2000)
 	image = models.ImageField("News image",upload_to="news",blank=True)
 	event_type=models.CharField(max_length=2,choices=TYPE_CHOICES,default=MEDIA)
-	
+
 	def __str__(self):
 		return self.title
-		
+
 	class Meta:
 		verbose_name_plural = "Public"

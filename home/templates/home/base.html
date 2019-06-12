@@ -61,26 +61,19 @@
 </div>
 </div>
 
-{#% load photos_tag %#}
-{#% photo_sample %#}
-
 <div class="sidebar" id="sidebar1">
-<h2><a
+
+  {% load photos_tag %}
+  {% get_random_photos %}
+
+<!--<h2><a
  href="#"><b>Our laboratory</b></a></h2>
 <p><a href="{% static 'images/gallery1.jpg' %}"><img src="{% static 'images/gallery1.jpg' %}" border="0" /></a></p>
-<br />
-
-	{% for course in courses %}
-  {% if forloop.first %}
-      <p>Coming soon:<br/>
-      <a href="{{SERVER_URL}}/courses"><h3>{{ course.title }}</h3> {{ course.starts }}{% if course.ends %} - {{ course.ends }}{% endif %}</a></p>
-  {% endif %}
-  {% endfor %}
-
-
-
-
-
+<br />-->
+{% load event_tag %}
+{% get_coming_event as meeting %}
+<p>Coming soon:<br/>
+<a href="{{SERVER_URL}}/meetings"><h3>{{ meeting.title }}</h3> {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}</a></p>
 
 
 </div>
