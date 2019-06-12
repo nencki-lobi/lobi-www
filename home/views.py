@@ -1,7 +1,7 @@
 #from django.http import HttpResponse
 from django.shortcuts import render_to_response
 #from django.template import Context, loader, RequestContext
-from home.models import News, Alumni, Research, Publication, Course, Photo
+from home.models import News, Alumni, Research, Publication, Meeting, Photo
 from django.contrib.auth.models import User
 from datetime import date
 
@@ -39,8 +39,8 @@ def equipment(request):
     return render_to_response('home/equipment.html')
 
 def courses(request):
-	future_courses = Course.objects.filter(starts__gt=date.today()).order_by('starts')
-	past_courses = Course.objects.filter(starts__lt=date.today()).order_by('-starts')
+	future_courses = Meeting.objects.filter(starts__gt=date.today()).order_by('starts')
+	past_courses = Meeting.objects.filter(starts__lt=date.today()).order_by('-starts')
 	return render_to_response('home/courses.html', {'future_courses' : future_courses, 'past_courses' : past_courses})
 
 def gallery(request):

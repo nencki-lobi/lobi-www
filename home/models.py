@@ -79,13 +79,12 @@ class Publication(models.Model):
 	class Meta:
 		verbose_name_plural = "Publications"
 
-class Course(models.Model):
-	MRUSER = 'MRUC'
-	LABMEETING = 'LABM'
-	OPENING = 'LOPN'
+class Meeting(models.Model):
+	SEMINAR = 'SM'
+	WORKSHOP = 'WS'
 	COURSE_CHOICES = (
-		(MRUSER, 'MR User Club'),
-		(LABMEETING, 'Lab Meeting'),
+		(SEMINAR, 'Seminar'),
+		(WORKSHOP, 'Workshop'),
 	)
 	title = models.CharField("Course title",max_length=200)
 	starts = models.DateTimeField("Starting date")
@@ -96,7 +95,7 @@ class Course(models.Model):
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
 	link = models.CharField("External link (start with http://...)",max_length=500,blank=True)
-	event_type = models.CharField(max_length=4,choices=COURSE_CHOICES,default=LABMEETING)
+	event_type = models.CharField(max_length=4,choices=COURSE_CHOICES,default=SEMINAR)
 
 	@property
 	def upcoming(self):
@@ -108,7 +107,7 @@ class Course(models.Model):
 		return self.title
 
 	class Meta:
-		verbose_name_plural = "Courses"
+		verbose_name_plural = "Meetings"
 
 class Photo(models.Model):
 	title = models.CharField(max_length=200)
