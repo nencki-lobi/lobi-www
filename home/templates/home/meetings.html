@@ -1,0 +1,55 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+
+{% block main_content %}
+<div class="post">
+<h1 class="title">UPCOMING MEETINGS</h1>
+<!-- <p class="meta"><small>Posted on October 24th, 2013 by <a href="#">Someone</a></small></p> -->
+<div class="entry">
+
+{% for meeting in future_meetings %}
+<p>
+<h2>
+{% if meeting.bold %} <b> {% endif %}
+{{ meeting.title }}</br>{% if meeting.old %} {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}{% endif %}
+{% if meeting.bold %} </b> {% endif %}
+</h2>
+{{ meeting.people }}</br></br>
+{{ meeting.about|safe }}
+</br>{% if meeting.link %}
+<a href="{{meeting.link}}" target="_blank">More information</a>
+{% endif %}
+{% if meeting.image %}
+<br/>
+<img src="{{ meeting.image.url }}" alt="">
+{% endif %}
+</p>
+{% endfor %}
+</div>
+<h1 class="title">PAST MEETINGS</h1>
+<div class="entry">
+{% for meeting in past_meetings %}
+<p>
+<h2>
+{% if meeting.bold %} <b> {% endif %}
+{{ meeting.title }}</br>{% if meeting.old %} {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}{% endif %}
+{% if meeting.bold %} </b> {% endif %}
+</h2>
+{{ meeting.people }}</br></br>
+<details>
+<summary>Details</summary>
+{{ meeting.about|safe }}
+</br>{% if meeting.link %}
+<a href="{{meeting.link}}" target="_blank">More information</a>
+{% endif %}
+{% if meeting.image %}
+<br/>
+<img src="{{ meeting.image.url }}" alt="">
+{% endif %}
+</p>
+</details>
+{% endfor %}
+
+</div>
+</div>
+{% endblock main_content %}

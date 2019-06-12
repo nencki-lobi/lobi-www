@@ -12,16 +12,15 @@ urlpatterns = [
 	url(r'^team/$', views.team, name='team'),
 	url(r'^about_us/', views.about_us, name='about_us'),
 	url(r'^equipment/', views.equipment, name='equipment'),
-	url(r'^courses/$', views.courses, name='courses'),
+	url(r'^meetings/$', views.meetings, name='meetings'),
 	url(r'^news/$', views.news, name='news'),
 	url(r'^gallery/', views.gallery, name='gallery'),
 	url(r'^team/(?P<item_id>\d+)/$', views.person),
 	url(r'^research/(?P<item_id>\d+)/$', views.about),
-	url(r'^courses/mruser/', views.courses_mruser, name='courses_mruser'), #to remove
-	url(r'^courses/labmeeting/', views.courses_labmeeting, name='courses_labmeeting'), #to remove
-	url(r'^courses/labopening/', views.courses_labopening, name='courses_labopening'), #to remove
+	url(r'^meetings/seminars/', views.meetings_seminars, name='meetings_seminars'),
+	url(r'^meetings/workshops/', views.meetings_workshops, name='meetings_workshops'),
     url(r'^public/$', views.public),
-    url(r'^public/media/$', views.public),
-    url(r'^public/events/$', views.public),
+    url(r'^public/media/$', views.public_media),
+    url(r'^public/events/$', views.public_events),
     url(r'^robots/$', views.robots), #temporary
 ]

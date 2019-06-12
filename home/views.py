@@ -1,7 +1,7 @@
 #from django.http import HttpResponse
 from django.shortcuts import render_to_response
 #from django.template import Context, loader, RequestContext
-from home.models import News, Alumni, Research, Publication, Meeting, Photo
+from home.models import News, Alumni, Research, Publication, Meeting, Photo, Public
 from django.contrib.auth.models import User
 from datetime import date
 
@@ -38,10 +38,10 @@ def publications(request):
 def equipment(request):
     return render_to_response('home/equipment.html')
 
-def courses(request):
-	future_courses = Meeting.objects.filter(starts__gt=date.today()).order_by('starts')
-	past_courses = Meeting.objects.filter(starts__lt=date.today()).order_by('-starts')
-	return render_to_response('home/courses.html', {'future_courses' : future_courses, 'past_courses' : past_courses})
+def meetings(request):
+	future_meetings = Meeting.objects.filter(starts__gt=date.today()).order_by('starts')
+	past_meetings = Meeting.objects.filter(starts__lt=date.today()).order_by('-starts')
+	return render_to_response('home/meetings.html', {'future_meetings' : future_meetings, 'past_meetings' : past_meetings})
 
 def gallery(request):
 	photos = Photo.objects.all()
@@ -56,26 +56,31 @@ def about(request, item_id):
 	item = Research.objects.get(id=item_id)
 	return render_to_response('home/about.html', {'item' :  item})
 
-def courses_mruser(request):
-	future_courses = Course.objects.filter(starts__gt=date.today(),event_type='MRUC').order_by('starts')
-	past_courses = Course.objects.filter(starts__lt=date.today(),event_type='MRUC').order_by('-starts')
-	return render_to_response('home/courses.html', {'future_courses' : future_courses, 'past_courses' : past_courses})
+def meetings_seminars(request):
+	future_meetings = Meeting.objects.filter(starts__gt=date.today(),event_type='SM').order_by('starts')
+	past_meetings = Meeting.objects.filter(starts__lt=date.today(),event_type='SM').order_by('-starts')
+	return render_to_response('home/meetings.html', {'future_meetings' : future_meetings, 'past_meetings' : past_meetings})
 
-def courses_labmeeting(request):
-	future_courses = Course.objects.filter(starts__gt=date.today(),event_type='LABM').order_by('starts')
-	past_courses = Course.objects.filter(starts__lt=date.today(),event_type='LABM').order_by('-starts')
-	return render_to_response('home/courses.html', {'future_courses' : future_courses, 'past_courses' : past_courses})
-
-def courses_labopening(request):
-    return render_to_response('home/labopening.html')
+def meetings_workshops(request):
+	future_meetings = Meeting.objects.filter(starts__gt=date.today(),event_type='WS').order_by('starts')
+	past_meetings = Meeting.objects.filter(starts__lt=date.today(),event_type='WS').order_by('-starts')
+	return render_to_response('home/meetings.html', {'future_meetings' : future_meetings, 'past_meetings' : past_meetings})
 
 def news(request):
 	news = News.objects.all().order_by('-date')
 	return render_to_response('home/news.html', {'news' : news})
 
 def public(request):
-	#news = News.objects.all().order_by('-date')
-	return render_to_response('home/robots.html')
+	public = Public.objects.all().order_by('-date')
+	return render_to_response('home/public.html', {'public' : public})
+
+def public_media(request):
+	public = Public.objects.filter(event_type='MD').order_by('-date')
+	return render_to_response('home/public.html', {'public' : public})
+
+def public_events(request):
+	public = Public.objects.filter(event_type='EV').order_by('-date')
+	return render_to_response('home/public.html', {'public' : public})
 
 def robots(request):
 	#news = News.objects.all().order_by('-date')

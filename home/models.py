@@ -58,7 +58,7 @@ class Research(models.Model):
 	#inter_exter = models.BooleanField("Internal LOBI project")
 	research_type = models.CharField(max_length=3,choices=RESEARCH_CHOICES,default=NEURO)
 	
-	def __unicode__(self):
+	def __str__(self):
 		return self.title
 
 	class Meta:
@@ -73,7 +73,7 @@ class Publication(models.Model):
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
 	link = models.CharField("External link (start with http://...)",max_length=500,blank=True)
 	
-	def __unicode__(self):
+	def __str__(self):
 		return self.title
 
 	class Meta:
@@ -82,7 +82,7 @@ class Publication(models.Model):
 class Meeting(models.Model):
 	SEMINAR = 'SM'
 	WORKSHOP = 'WS'
-	COURSE_CHOICES = (
+	TYPE_CHOICES = (
 		(SEMINAR, 'Seminar'),
 		(WORKSHOP, 'Workshop'),
 	)
@@ -95,7 +95,7 @@ class Meeting(models.Model):
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
 	link = models.CharField("External link (start with http://...)",max_length=500,blank=True)
-	event_type = models.CharField(max_length=4,choices=COURSE_CHOICES,default=SEMINAR)
+	event_type = models.CharField(max_length=2,choices=TYPE_CHOICES,default=SEMINAR)
 
 	@property
 	def upcoming(self):
@@ -103,7 +103,7 @@ class Meeting(models.Model):
 			return True
 		return False
 	
-	def __unicode__(self):
+	def __str__(self):
 		return self.title
 
 	class Meta:
@@ -113,7 +113,7 @@ class Photo(models.Model):
 	title = models.CharField(max_length=200)
 	image = models.ImageField("foto",upload_to="photos")
 	
-	def __unicode__(self):
+	def __str__(self):
 		return self.title
 
 class News(models.Model):
@@ -122,8 +122,27 @@ class News(models.Model):
 	content = models.TextField("News content (html allowed)",max_length=2000)
 	image = models.ImageField("News image",upload_to="news",blank=True)
 	
-	def __unicode__(self):
+	def __str__(self):
 		return self.title
 		
 	class Meta:
 		verbose_name_plural = "News"
+
+class Public(models.Model):
+	MEDIA = 'MD'
+	EVENT = 'EV'
+	TYPE_CHOICES = (
+		(MEDIA, 'Media release'),
+		(EVENT, 'Public event'),
+	)
+	date = models.DateTimeField("Date",auto_now=True)
+	title = models.CharField("Title",max_length=200)
+	content = models.TextField("News content (html allowed)",max_length=2000)
+	image = models.ImageField("News image",upload_to="news",blank=True)
+	event_type=models.CharField(max_length=2,choices=TYPE_CHOICES,default=MEDIA)
+	
+	def __str__(self):
+		return self.title
+		
+	class Meta:
+		verbose_name_plural = "Public"
