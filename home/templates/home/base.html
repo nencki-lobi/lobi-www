@@ -68,7 +68,22 @@
 <h2><a
  href="#"><b>Our laboratory</b></a></h2>
 <p><a href="{% static 'images/gallery1.jpg' %}"><img src="{% static 'images/gallery1.jpg' %}" border="0" /></a></p>
-<br /></div>
+<br />
+
+	{% for course in courses %}
+  {% if forloop.first %}
+      <p>Coming soon:<br/>
+      <a href="{{SERVER_URL}}/courses"><h3>{{ course.title }}</h3> {{ course.starts }}{% if course.ends %} - {{ course.ends }}{% endif %}</a></p>
+  {% endif %}
+  {% endfor %}
+
+
+
+
+
+
+
+</div>
 
 <div style="clear: both;">&nbsp;</div>
 <hr /><!-- start footer -->
