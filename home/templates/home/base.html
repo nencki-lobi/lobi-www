@@ -66,14 +66,18 @@
   {% load photos_tag %}
   {% get_random_photos %}
 
-{% load event_tag %}
-{% get_coming_event as meeting %}
-<p>Coming soon:<br/>
-  {% if meeting is not None %}
-<a href="{{SERVER_URL}}/meetings"><h3>{{ meeting.title }}</h3> {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}</a></p>
-  {% else %}
-  No scheduled events.</p>
-  {% endif %}
+  {% load event_tag %}
+  {% get_coming_event as meeting %}
+
+  <p>Coming soon:<br/>
+    {% if meeting is not None %}
+    <a href="{{SERVER_URL}}/meetings"><h3>{{ meeting.title }}</h3></a>
+    {{ meeting.people }}<br/>
+    {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}
+    {% else %}
+    No scheduled events.
+    {% endif %}
+  </p>
 
 </div>
 
