@@ -1,7 +1,7 @@
 #from django.http import HttpResponse
 from django.shortcuts import render_to_response
 #from django.template import Context, loader, RequestContext
-from home.models import News, Alumni, Research, Publication, Meeting, Photo, Public
+from home.models import News, Alumni, Research, Publication, Meeting, Photo
 from django.contrib.auth.models import User
 from datetime import date
 
@@ -71,15 +71,15 @@ def news(request):
 	return render_to_response('home/news.html', {'news' : news})
 
 def public(request):
-	public = Public.objects.all().order_by('-date')
+	public = News.objects.exclude(event_type='NW').order_by('-date')
 	return render_to_response('home/public.html', {'public' : public})
 
 def public_media(request):
-	public = Public.objects.filter(event_type='MD').order_by('-date')
+	public = News.objects.filter(event_type='MD').order_by('-date')
 	return render_to_response('home/public.html', {'public' : public})
 
 def public_events(request):
-	public = Public.objects.filter(event_type='EV').order_by('-date')
+	public = News.objects.filter(event_type='EV').order_by('-date')
 	return render_to_response('home/public.html', {'public' : public})
 
 def robots(request):

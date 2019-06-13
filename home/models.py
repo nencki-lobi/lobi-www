@@ -117,32 +117,22 @@ class Photo(models.Model):
 		return self.title
 
 class News(models.Model):
+	NEWS = 'NW'
+	MEDIA = 'MD'
+	EVENT = 'EV'
+	TYPE_CHOICES = (
+		(NEWS, 'Generic news'),
+		(MEDIA, 'Media release'),
+		(EVENT, 'Public event'),
+	)
 	date = models.DateTimeField("Date",auto_now=True)
-	title = models.CharField("Title",max_length=200)
+	title = models.CharField("Title",max_length=200,help_text="New item will appear on the top. Re-edited and saved items are treated as new ones.")
 	content = models.TextField("News content (html allowed)",max_length=2000)
 	image = models.ImageField("News image",upload_to="news",blank=True)
+	event_type=models.CharField(max_length=2,choices=TYPE_CHOICES,default=NEWS,help_text="All items will apear on the main page. Only media releases and events will display in the Public card.")
 
 	def __str__(self):
 		return self.title
 
 	class Meta:
 		verbose_name_plural = "News"
-
-class Public(models.Model):
-	MEDIA = 'MD'
-	EVENT = 'EV'
-	TYPE_CHOICES = (
-		(MEDIA, 'Media release'),
-		(EVENT, 'Public event'),
-	)
-	date = models.DateTimeField("Date",auto_now=True)
-	title = models.CharField("Title",max_length=200)
-	content = models.TextField("News content (html allowed)",max_length=2000)
-	image = models.ImageField("News image",upload_to="news",blank=True)
-	event_type=models.CharField(max_length=2,choices=TYPE_CHOICES,default=MEDIA)
-
-	def __str__(self):
-		return self.title
-
-	class Meta:
-		verbose_name_plural = "Public"
