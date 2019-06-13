@@ -63,21 +63,21 @@
 
 <div class="sidebar" id="sidebar1">
 
+<a href="https://pl-pl.facebook.com/lobi.nencki/"><img src="{% static 'images/fb_logo.png' %}" style="height: 60px; width: 60px"/></a>
+<a href="https://github.com/nencki-lobi"><img src="{% static 'images/GitHub-Mark-120px-plus.png' %}" style="height: 60px; width: 60px"/></a>
+<a href="{{SERVER_URL}}/team"><img src="{% static 'images/contact.png' %}" style="height: 60px; width: 60px"/></a>
+
   {% load photos_tag %}
   {% get_random_photos %}
 
-  {% load event_tag %}
-  {% get_coming_event as meeting %}
+{% load event_tag %}
+{% get_coming_event as meeting %}
 
-  <p>Coming soon:<br/>
-    {% if meeting is not None %}
-    <a href="{{SERVER_URL}}/meetings"><h3>{{ meeting.title }}</h3></a>
-    {{ meeting.people }}<br/>
-    {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}
-    {% else %}
-    No scheduled events.
-    {% endif %}
-  </p>
+  {% if meeting is not None %}
+  <p>Coming soon:<br>
+  <a href="{{SERVER_URL}}/meetings"><b>{{ meeting.title }} </b><br> {{ meeting.people }} <br>
+  {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}</a></p>
+  {% endif %}
 
 </div>
 

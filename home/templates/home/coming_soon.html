@@ -1,6 +1,0 @@
-{% for meeting in meetings %}
-{% if forloop.first %}
-    <p>Coming soon:<br/>
-    <a href="{{SERVER_URL}}/meetings"><h3>{{ meeting.title }}</h3> {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}</a></p>
-{% endif %}
-{% endfor %}
