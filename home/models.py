@@ -1,5 +1,5 @@
 from django.db import models
-import datetime
+from datetime import datetime
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -67,7 +67,7 @@ class Research(models.Model):
 class Publication(models.Model):
 	title = models.CharField("Title",max_length=200)
 	authors = models.CharField("Authors (html allowed)",max_length=400)
-	published = models.DateField("Publication date (leave empty if not published)",null=True,blank=True)
+	published = models.DateField("Publication date",null=True,blank=True,default=datetime.now,help_text="Leave empty if not published yet")
 	about = models.TextField("More information (html allowed)",max_length=2000,blank=True)
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
@@ -87,7 +87,7 @@ class Meeting(models.Model):
 		(WORKSHOP, 'Workshop'),
 	)
 	title = models.CharField("Course title",max_length=200)
-	starts = models.DateTimeField("Starting date")
+	starts = models.DateTimeField("Starting date",default=datetime.now)
 	ends = models.DateTimeField("Ending date",null=True,blank=True)
 	old = models.BooleanField("Show date",default=True)
 	people = models.CharField("Speaker and/or organizers",max_length=200)
