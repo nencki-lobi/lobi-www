@@ -4,11 +4,16 @@ from datetime import date
 
 register = template.Library()
 
+
 @register.simple_tag
 def get_coming_event():
-    return Meeting.objects.order_by('-starts')[0]
-
-#@register.inclusion_tag('home/photo_sample.html')
-#def get_random_photos():
-#    photos = Photo.objects.order_by('-date)[:2]
-#    return {'photos': photos}
+    try:
+        upcoming = (
+            Meeting.objects
+            .filter(starts__gte=date.today())
+            .order_by('starts')[0]
+            )
+    except IndexError:
+        upcoming = None
+    # return Meeting.objects.order_by('-starts')[0]
+    return upcoming
