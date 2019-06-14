@@ -3,6 +3,8 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from home.validators import validate_orcid, validate_github, validate_scholar
+
 
 class Profile(models.Model):
 	user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
@@ -16,9 +18,9 @@ class Profile(models.Model):
 	research = models.TextField("Research interests (html allowed)",max_length=2000,blank=True)
 	publications = models.TextField("Selected publications (html allowed)",max_length=12000,blank=True)
 	funding = models.TextField("Funding (html allowed)",max_length=2000,blank=True)
-	orcid = models.CharField("Orcid ID", max_length=32, blank=True, help_text="0000-0000-0000-0000")
-	github = models.CharField("GitHub username", max_length=32, blank=True)
-	scholar = models.CharField("Google scholar ID", max_length=32, blank=True, help_text="Enter just the ID. This is part of an url, e.g. https://scholar.google.pl/citations?user=<strong>qTDPssQAAAAJ</strong>&hl=pl")
+	orcid = models.CharField("Orcid ID", max_length=32, blank=True, help_text="0000-0000-0000-0000", validators=[validate_orcid])
+	github = models.CharField("GitHub username", max_length=32, blank=True, validators=[validate_github])
+	scholar = models.CharField("Google scholar ID", max_length=32, blank=True, help_text="Enter just the ID. This is part of an url, e.g. https://scholar.google.pl/citations?user=<strong>qTDPssQAAAAJ</strong>&hl=pl", validators=[validate_scholar])
 	image = models.ImageField("Face",upload_to="users",blank=True)
 	my_dish = models.CharField("I can cook...",max_length=200,blank=True)
 
