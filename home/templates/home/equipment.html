@@ -1,5 +1,6 @@
 {% extends "home/base.html" %}
 {% load i18n %}
+{% load static %}
 
 {% block main_content %}
 <div class="post">
@@ -53,21 +54,21 @@ equipment:</b><br />
   <tbody>
 		<tr>
 			<td style="width: 50%">
-			<img src="{{STATIC_URL}}images/equipment/rIMG_8244.jpg" alt="skaner"/>
+			<img src="{% static 'images/equipment/rIMG_8244.jpg'%}" alt="skaner"/>
 			3T Siemens Magnetom MRI Scanner
 			</td>
 			<td>
-			<img src="{{STATIC_URL}}images/equipment/reeg.jpg" alt="eeg"/>
+			<img src="{% static 'images/equipment/reeg.jpg'%}" alt="eeg"/>
 			64 channel EEG system
 			</td>
 		</tr>
 		<tr>
 			<td style="width: 50%">
-			<img src="{{STATIC_URL}}images/equipment/rmock.jpg" alt="mock"/>
+			<img src="{% static 'images/equipment/rmock.jpg'%}" alt="mock"/>
 			0T MRI simulator (mock scanner)
 			</td>
 			<td>
-			<img src="{{STATIC_URL}}images/equipment/rMRroom.jpg" alt="console"/>
+			<img src="{% static 'images/equipment/rMRroom.jpg'%}" alt="console"/>
 			MRI console
 			</td>
 		</tr>
