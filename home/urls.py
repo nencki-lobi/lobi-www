@@ -10,6 +10,7 @@ urlpatterns = [
 	url(r'^research/behavioral/', views.research_behavioral, name='research_behavioral'),
     url(r'^publications/', views.publications, name='publications'),
 	url(r'^team/$', views.team, name='team'),
+    url(r'^join/$', views.join, name='join'),
 	url(r'^about_us/', views.about_us, name='about_us'),
 	url(r'^equipment/', views.equipment, name='equipment'),
 	url(r'^meetings/$', views.meetings, name='meetings'),

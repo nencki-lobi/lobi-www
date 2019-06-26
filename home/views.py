@@ -22,6 +22,10 @@ def research(request):
 	research = Research.objects.all().order_by('-priority')
 	return render_to_response('home/research.html', {'research' : research})
 
+def join(request):
+	research = Research.objects.exclude(job__exact='')
+	return render_to_response('home/join.html', {'research' : research})
+
 def research_neuroimaging(request):
 	research = Research.objects.filter(research_type='NRI').order_by('-priority')
 	return render_to_response('home/research_neuro.html', {'research' : research})

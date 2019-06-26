@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
@@ -137,4 +138,3 @@ STATIC_ROOT = config('STATIC_ROOT')
 MEDIA_ROOT = config('MEDIA_ROOT')
 MEDIA_URL = '/media/'
 FILE_UPLOAD_PERMISSIONS = 0o644
-

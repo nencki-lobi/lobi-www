@@ -34,10 +34,7 @@
 <p>
 {{ item.about|safe }}
 {% endif %}
-{% if item.web %}
-<!--<iframe width="100%" name="Frame content" src="{{ item.web }}" onload="this.height=screen.height;"></iframe>-->
-<iframe src="{{ item.web }}" frameborder="0" height="768" width="800"><!--Size is adjusted to page width-->
-{% endif %}
+
 {% if item.link%}
 <br/>
 External link: <a href="{{ item.link }}" target="_blank">{{ item.link }}</a>
@@ -49,6 +46,20 @@ External link: <a href="{{ item.link }}" target="_blank">{{ item.link }}</a>
 {{ item.about_image }}
 </p>
 {% endif %}
+
+{% if item.job%}
+<p><b>
+<a href="{{ item.job.url }}">Open job or PhD position!</a>
+</b></p>
+{% endif %}
+
+{% if item.recruitment%}
+<p>
+<a href="{{ item.recruitment }}">Click here to get know how to participate in our study </a>
+</p>
+{% endif %}
+
+
 </div>
 </div>
 {% endblock main_content %}

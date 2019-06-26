@@ -1,0 +1,37 @@
+{% extends "home/base.html" %}
+{% load i18n %}
+
+{% block main_content %}
+<div class="post">
+<h1 class="title">currently open job and phd positions</h1>
+<br />
+<!-- <p class="meta"><small>Posted on October 24th, 2013 by <a href="#">Someone</a></small></p> -->
+<div class="entry">
+
+{% if research %}
+
+	{% for item in research %}
+
+    <p>
+    <a href="{{SERVER_URL}}/research/{{ item.id }}/">
+    {{ item.title }}
+    </a>
+    <br />
+    {{item.investigator}}
+    <br />
+    {{item.institution}}
+    <br />
+    <a href="{{ item.job.url }}/">Click here to open the anouncment</a>
+    </p>
+
+	{% endfor %}
+
+{% else %}
+<p>
+Sorry, there are no positions available at this time.
+</p>
+{% endif %}
+
+</div>
+</div>
+{% endblock main_content %}

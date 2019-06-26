@@ -57,6 +57,8 @@ class Research(models.Model):
 	about_image = models.TextField("Image caption",max_length=500,blank=True)
 	link = models.CharField("External link (start with http://...)",max_length=500,blank=True)
 	web = models.CharField("Frame content (start with http://...)",max_length=500,blank=True)
+	recruitment = models.URLField("Link to recruitment page (start with http://...)",max_length=500,blank=True)
+	job = models.FileField("Upload job anouncment (delete if closed)",upload_to="documents",blank=True)
 	#inter_exter = models.BooleanField("Internal LOBI project")
 	research_type = models.CharField(max_length=3,choices=RESEARCH_CHOICES,default=NEURO)
 
