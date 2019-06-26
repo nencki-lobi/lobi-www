@@ -55,9 +55,8 @@ class Research(models.Model):
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
 	about_image = models.TextField("Image caption",max_length=500,blank=True)
-	link = models.CharField("External link (start with http://...)",max_length=500,blank=True)
-	web = models.CharField("Frame content (start with http://...)",max_length=500,blank=True)
-	recruitment = models.URLField("Link to recruitment page (start with http://...)",max_length=500,blank=True)
+	link = models.URLField("External link",max_length=500,blank=True)
+	recruitment = models.URLField("Link to recruitment page eg. FB post",max_length=500,blank=True)
 	job = models.FileField("Upload job anouncment (delete if closed)",upload_to="documents",blank=True)
 	#inter_exter = models.BooleanField("Internal LOBI project")
 	research_type = models.CharField(max_length=3,choices=RESEARCH_CHOICES,default=NEURO)
@@ -75,7 +74,7 @@ class Publication(models.Model):
 	about = models.TextField("More information (html allowed)",max_length=2000,blank=True)
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
-	link = models.CharField("External link (start with http://...)",max_length=500,blank=True)
+	link = models.URLField("External link",max_length=500,blank=True)
 
 	def __str__(self):
 		return self.title
@@ -98,7 +97,7 @@ class Meeting(models.Model):
 	about = models.TextField("More information (place etc., html allowed)",max_length=5000)
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
-	link = models.CharField("External link (start with http://...)",max_length=500,blank=True)
+	link = models.URLField("External link",max_length=500,blank=True)
 	event_type = models.CharField(max_length=2,choices=TYPE_CHOICES,default=SEMINAR)
 
 	@property
