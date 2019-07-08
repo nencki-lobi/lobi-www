@@ -95,6 +95,7 @@ class Meeting(models.Model):
 	old = models.BooleanField("Show date",default=True)
 	people = models.CharField("Speaker and/or organizers",max_length=200)
 	about = models.TextField("More information (place etc., html allowed)",max_length=5000)
+	room = models.CharField("Room/Place",max_length=200,blank=True)
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
 	link = models.URLField("External link",max_length=500,blank=True)

@@ -73,7 +73,8 @@
   {% if meeting is not None %}
   <p>Coming soon:<br>
   <a href="{{SERVER_URL}}/meetings"><b>{{ meeting.title }} </b><br> {{ meeting.people }} <br>
-  {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}</a></p>
+  {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}
+  {% if meeting.room %}<br>Room: {{ meeting.room }}{% endif %}</a></p>
   {% endif %}
 
   {% load photos_tag %}
