@@ -46,7 +46,7 @@
 
 {% if show_social %}
 <h2>Online:</h2>
-<p>
+<p></p>
   {% if user.profile.orcid %}
   <div itemscope itemtype="https://schema.org/Person">
     <a itemprop="sameAs" content="https://orcid.org/{{ user.profile.orcid }}" href="https://orcid.org/{{ user.profile.orcid }}" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;">
@@ -81,7 +81,7 @@
     </a>
   </div>
   {% endif %}
-</p>
+
 {% endif %}
 
 {% if user.profile.research %}
