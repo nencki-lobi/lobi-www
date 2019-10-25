@@ -31,3 +31,11 @@ def validate_scholar(value):
             _('%(value)s is not a valid scholar ID.'),
             params={'value': value},
         )
+
+def validate_researchgate(value):
+    """Based on wikidata.org"""
+    if not re.match(r'[0-9A-Za-z_-]+', value):
+        raise ValidationError(
+            _('%(value)s is not a valid ResearchGate profile ID'),
+            params={'value': value},
+        )

@@ -53,7 +53,7 @@ def gallery(request):
 
 def person(request, item_id):
 	user = User.objects.get(id=item_id)
-	has_social = any((user.profile.orcid, user.profile.scholar, user.profile.github))
+	has_social = any((user.profile.orcid, user.profile.scholar, user.profile.github, user.profile.researchgate))
 	return render_to_response('home/person.html', {'user':  user, 'show_social': has_social})
 
 def about(request, item_id):
