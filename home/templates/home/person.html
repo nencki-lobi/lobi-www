@@ -46,7 +46,7 @@
 
 {% if show_social %}
 <h2>Online:</h2>
-<p>
+<p></p>
   {% if user.profile.orcid %}
   <div itemscope itemtype="https://schema.org/Person">
     <a itemprop="sameAs" content="https://orcid.org/{{ user.profile.orcid }}" href="https://orcid.org/{{ user.profile.orcid }}" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;">
@@ -73,7 +73,15 @@
   </div>
   {% endif %}
 
-</p>
+  {% if user.profile.researchgate %}
+  <div>
+    <a href="https://www.researchgate.net/profile/{{ user.profile.researchgate }}">
+      <img src="{% static 'images/ResearchGate-Icon.png' %}", , height="16", width="16", style="width:1em;margin-right:.5em;", alt="ResearchGate icon">
+      ResearchGate
+    </a>
+  </div>
+  {% endif %}
+
 {% endif %}
 
 {% if user.profile.research %}
