@@ -56,7 +56,7 @@ class Research(models.Model):
 	investigator = models.CharField("Principal Investigator",max_length=200)
 	institution = models.CharField("Institution name (lab)",max_length=200)
 	priority = models.IntegerField("Priority (the more the higher at page)",blank=False,default=0)
-	about = models.TextField("More information (html allowed)",max_length=5000,blank=True)
+	about = models.TextField("More information (html allowed)",blank=True)
 	bold = models.BooleanField()
 	image = models.ImageField("Graphic",upload_to="research",blank=True)
 	about_image = models.TextField("Image caption",max_length=500,blank=True)
