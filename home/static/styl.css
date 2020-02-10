@@ -12,6 +12,9 @@ table {
   table-layout: fixed;
 }
 
+th, td {
+  padding: 10px;
+}
 
 * {
 	margin: 0;
