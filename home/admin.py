@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from home.models import Research, Publication, Meeting, Photo, News, Alumni
+from home.models import Research, Publication, Meeting, Photo, News, Alumni, Alias
 #from django.contrib.sites.models import Site
 #from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
@@ -13,6 +13,7 @@ admin.site.register(Meeting)
 admin.site.register(Photo)
 admin.site.register(News)
 admin.site.register(Alumni)
+admin.site.register(Alias)
 #admin.site.unregister(Group)
 #admin.site.unregister(Site)
 

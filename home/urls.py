@@ -2,6 +2,7 @@ from django.urls import path
 from django.conf.urls import *
 
 from . import views
+from home.views import AliasRedirect
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^public/media/$', views.public_media),
     url(r'^public/events/$', views.public_events),
     url(r'^robots/$', views.robots), #temporary
+    path('alias/<int:pk>-<str:slug>/', AliasRedirect.as_view() , name='alias')
 ]

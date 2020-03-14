@@ -1,9 +1,10 @@
 #from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect, get_object_or_404
 #from django.template import Context, loader, RequestContext
-from home.models import News, Alumni, Research, Publication, Meeting, Photo
+from home.models import News, Alumni, Research, Publication, Meeting, Photo, Alias
 from django.contrib.auth.models import User
 from datetime import date
+from django.views.generic.detail import DetailView
 
 def index(request):
     news = News.objects.all().order_by('-date')[:4]
@@ -89,3 +90,10 @@ def public_events(request):
 def robots(request):
 	#news = News.objects.all().order_by('-date')
 	return render_to_response('home/robots.html')
+
+class AliasRedirect(DetailView):
+    model = Alias
+    query_pk_and_slug = True
+    def get(self, request, *args, **kwargs):
+        alias = get_object_or_404(Alias, pk=kwargs['pk'])
+        return redirect(alias.url)
