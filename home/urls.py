@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^public/$', views.public),
     url(r'^public/media/$', views.public_media),
     url(r'^public/events/$', views.public_events),
-    url(r'^robots/$', views.robots), #temporary
-    path('alias/<int:pk>-<str:slug>/', AliasRedirect.as_view() , name='alias')
+    url(r'^alias/$', views.alias),
+    #url(r'^robots/$', views.robots), #temporary
+    path('a/<int:pk>-<str:slug>/', AliasRedirect.as_view() , name='alias')
 ]

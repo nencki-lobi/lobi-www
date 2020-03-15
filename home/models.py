@@ -152,14 +152,13 @@ class Alias(models.Model):
 	slug = models.SlugField(default='',editable=False,max_length=500)
 	url = models.URLField("External link",max_length=500,blank=True)
 
-	def get_absolute_url(self):
-		kwargs = {
-			'pk': self.id,
-			'slug': self.slug
-			}
-		return reverse('article-pk-slug-detail', kwargs=kwargs)
-
 	def save(self, *args, **kwargs):
 		value = self.title
 		self.slug = slugify(value)
 		super().save(*args, **kwargs)
+
+	def __str__(self):
+		return self.title
+
+	class Meta:
+		verbose_name_plural = "Aliases"

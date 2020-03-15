@@ -87,6 +87,10 @@ def public_events(request):
 	public = News.objects.filter(event_type='EV').order_by('-date')
 	return render_to_response('home/public.html', {'public' : public})
 
+def alias(request):
+	alias = Alias.objects.all()
+	return render_to_response('home/alias.html', {'alias' : alias})
+
 def robots(request):
 	#news = News.objects.all().order_by('-date')
 	return render_to_response('home/robots.html')
