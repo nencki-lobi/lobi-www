@@ -6,7 +6,7 @@
 <!--<h1 class="title">Home</h1>
 <br />-->
 <div class="entry">
-<p>Laboratory of Brain Imaging is a core facility at 
+<p>Laboratory of Brain Imaging is a core facility at
   <a href="http://en.nencki.edu.pl/">Nencki Institute</a>.
   LOBI provides access to cutting edge research support and technologies for internal and external customers. The core technologies being developed and used at the Laboratory are magnetic resonance imaging (MRI), spectroscopy (MRS), electroencephalograpy (EEG - including EEG-fMRI simultaneous recordings), Transcranial Magnetic Stimulation (TMS) and computational image analysis.<br>
 
@@ -17,7 +17,7 @@
 &#9658; <a href="{{SERVER_URL}}/join">Join Us</a><br>
 
 <h2>Latest news</h2>
-</br>
+<br>
 <table border="0" width="100%">
   <tbody>
 	{% for item in news %}
@@ -28,10 +28,10 @@
 		{% endif %}
 	  </td>
       <td>
-      <p>
 		<h3>
 		{{ item.title }}
 		</h3>
+    <p>
 		{{ item.content|safe }}
 
 		</p>
