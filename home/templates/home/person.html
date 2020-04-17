@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
 {% load i18n %}
 {% load static %}
+{% load home_extras %}
 
 {% block main_content %}
 <div class="post">
@@ -40,7 +41,7 @@
 {% if user.profile.about %}
 <h2>About me:</h2>
 <p>
-{{ user.profile.about|safe }}
+{{ user.profile.about|dropptag|safe }}
 </p>
 {% endif %}
 
