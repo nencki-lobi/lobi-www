@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
 {% load i18n %}
 {% load static %}
+{% load home_extras %}
 {% block main_content %}
 <div class="post">
 <!--<h1 class="title">Home</h1>
@@ -32,7 +33,7 @@
 		{{ item.title }}
 		</h3>
     <p>
-		{{ item.content|safe }}
+		{{ item.content|dropptag|safe}}
 
 		</p>
       </td>
