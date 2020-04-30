@@ -3,13 +3,19 @@
 
 {% block main_content %}
 <div class="post">
-<h1 class="title">currently open job/PhD positions</h1>
+<h1 class="title">Join us!</h1>
 <br />
 <!-- <p class="meta"><small>Posted on October 24th, 2013 by <a href="#">Someone</a></small></p> -->
 <div class="entry">
 
+If you are interested in applying for an internship position in our lab, please send your CV to Lab
+Head, <a href="{{SERVER_URL}}/team/2/">Katarzyna
+Jednoróg</a>.</br>
+<strong> Note that we will only consider applications for at least 2 week internships! </strong>
+Please, specify your time schedule when applying.
+</p>
 {% if research %}
-
+<p>currently open job/PhD positions</p>
 	{% for item in research %}
 
     <p>
@@ -28,7 +34,7 @@
 
 {% else %}
 <p>
-Sorry, there are no positions available at this time.
+Sorry, there are no specific positions available at this time.
 </p>
 {% endif %}
 
