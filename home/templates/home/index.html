@@ -1,6 +1,7 @@
 {% extends "home/base.html" %}
 {% load i18n %}
 {% load static %}
+{% load home_extras %}
 {% block main_content %}
 <div class="post">
 <!--<h1 class="title">Home</h1>
@@ -32,7 +33,7 @@ information is self-relevant.
 </p>
 
 <h2>Latest news</h2>
-</br>
+<br>
 <table border="0" width="100%">
   <tbody>
 	{% for item in news %}
@@ -43,11 +44,11 @@ information is self-relevant.
 		{% endif %}
 	  </td>
       <td>
-      <p>
 		<h3>
 		{{ item.title }}
 		</h3>
-		{{ item.content|safe }}
+    <p>
+		{{ item.content|dropptag|safe}}
 
 		</p>
       </td>

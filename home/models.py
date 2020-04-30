@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from home.validators import validate_orcid, validate_github, validate_scholar, validate_researchgate
+from django.template.defaultfilters import slugify
 
 
 class Profile(models.Model):
@@ -145,3 +146,19 @@ class News(models.Model):
 
 	class Meta:
 		verbose_name_plural = "News"
+
+class Alias(models.Model):
+	title = models.CharField("Alias",max_length=100)
+	slug = models.SlugField(default='',editable=False,max_length=500)
+	url = models.URLField("External link",max_length=500,blank=True)
+
+	def save(self, *args, **kwargs):
+		value = self.title
+		self.slug = slugify(value)
+		super().save(*args, **kwargs)
+
+	def __str__(self):
+		return self.title
+
+	class Meta:
+		verbose_name_plural = "Aliases"
