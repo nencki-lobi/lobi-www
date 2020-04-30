@@ -23,7 +23,7 @@
   <li><a href="{{SERVER_URL}}/">Home</a>
 	<ul>
   		<!--<li><a href="{{SERVER_URL}}/about_us">About us</a></li>-->
-		<li><a href="{{SERVER_URL}}/equipment">Methods</a></li>
+		<li><a href="{{SERVER_URL}}/equipment">Equipment</a></li>
 		<li><a href="{{SERVER_URL}}/news">All news</a></li>
 	</ul>
   </li>
@@ -39,11 +39,11 @@
 	</ul>
   </li>
   <li><a href="{{SERVER_URL}}/publications">Publications</a></li>
-  <li><a href="{{SERVER_URL}}/meetings">Conferences</a>
-	<!-- <ul>
+  <li><a href="{{SERVER_URL}}/meetings">Meetings</a>
+	<ul>
 		<li><a href="{{SERVER_URL}}/meetings/seminars/">Seminars</a></li>
 		<li><a href="{{SERVER_URL}}/meetings/workshops/">Workshops</a></li>
-	</ul> -->
+	</ul>
   </li>
   <li><a href="{{SERVER_URL}}/public">Public</a>
   <ul>
@@ -75,7 +75,7 @@
   <p>Coming soon:<br>
   <a href="{{SERVER_URL}}/meetings"><b>{{ meeting.title }} </b><br> {{ meeting.people }} <br>
   {{ meeting.starts }}{% if meeting.ends %} - {{ meeting.ends }}{% endif %}
-  {% if meeting.room %}<br>{{ meeting.room }}{% endif %}</a></p>
+  {% if meeting.room %}<br>Room: {{ meeting.room }}{% endif %}</a></p>
   {% endif %}
 
   {% load photos_tag %}
@@ -93,12 +93,12 @@
 <hr /><!-- start footer -->
 <div id="footer">
 <p>Laboratory
-of Language Neurobiology - Nencki Institute<br />
+of Brain Imaging - Nencki Institute<br />
 Polish Academy of Sciences
 3 Pasteur Street, 02-093 Warsaw, Poland<br />
 </p>
 <p>&copy; 2013 All Rights
-Reserved &nbsp;&bull;&nbsp; by <a href="{{SERVER_URL}}/">LOLN</a> <a href="{{SERVER_URL}}/team">Contact us</a></p>
+Reserved &nbsp;&bull;&nbsp; by <a href="{{SERVER_URL}}/">LOBI</a> <a href="{{SERVER_URL}}/team">Contact us</a></p>
 </div>
 <!-- end footer -->
 </body>
