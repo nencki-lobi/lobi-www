@@ -31,7 +31,7 @@ body, th, td, input, textarea {
 
 h1, h2, h3 {
 	margin-top: 1.5em;
-	color: #F33900;
+	color: #DE6A21;
 }
 
 h1 {
@@ -44,7 +44,7 @@ h2 {
 	text-transform: uppercase;
 	font-size: 1.1em;
 	font-weight: bold;
-	color: #F33900;
+	color: #DE6A21;
 }
 
 h3 {
@@ -78,12 +78,12 @@ a:hover {
 h1 a, h2 a, h3 a {
 	border: none;
 	text-decoration: none;
-	color: #F33900;
+	color: #DE6A21;
 }
 
 h1 a:hover, h2 a:hover, h3 a:hover {
 	background: none;
-	color: #F33900;
+	color: #DE6A21;
 }
 
 hr {
@@ -142,7 +142,7 @@ hr {
       #menu ol > li {
         float:left;
         width:150px;
-        background-color:#f33900;
+        background-color:#DE6A21;
         height:2em;
 
       }
@@ -154,7 +154,7 @@ hr {
 
       /* wygląd elementów - li - wszystkich dzieci elementu - ol - po najechaniu kursorem myszki na element - li */
       #menu ol > li:hover {
-        background-color: #B82D03
+        background-color: #b55a1e
       }
 
       /* wygląd elementu - a - dziecka elementu - li - będącego dzieckiem elementu - ol - po najechaniu kursorem myszki na element - li */
@@ -303,7 +303,7 @@ hr {
 .sidebar li h2 {
 	margin: 0 0 10px 0;
 	font-family: Arial, Helvetica, sans-serif;
-	color: #F33900;
+	color: #DE6A21;
 }
 
 #sidebar1 {
@@ -349,7 +349,7 @@ hr {
 /* Footer */
 
 #footer {
-	background: #000000;
+	background: #BFBFBF;
 	height: 120px;
 	padding-top: 20px;
 }
@@ -363,7 +363,7 @@ hr {
 }
 
 #footer a {
-	background: #F33900;
+	background: #DE6A21;
 	padding: 2px 7px;
 	color: #FFFFFF;
 }
