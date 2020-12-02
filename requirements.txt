@@ -1,12 +1,9 @@
-Django==2.2.4
-Pillow==6.2.1
-psycopg2==2.8.2; platform_system == "Linux"
-psycopg2-binary==2.8.2;  platform_system == "Darwin"
+Django==2.2.1
+gunicorn==20.0.4
+psycopg2-binary>=2.8
 python-decouple==3.1
+Pillow==6.2.1
 pytz==2019.1
 sqlparse==0.3.0
 django-cleanup==3.2.0
 
-# note: psycopg2 builds from source and is recommended in production
-# but psycopg2-binary is way easier to install for development (see pypi)
-# to make switching easier, we default to the latter on MacOS
