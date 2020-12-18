@@ -6,6 +6,7 @@
 <title>Laboratory of Brain Imaging</title>
   <link media="screen" type="text/css" rel="stylesheet" href="{% static 'styl.css' %}" />
   <link rel="shortcut icon" href="{% static 'images/lobi.ico' %}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="description" content="Laboratory of Brain Imaging, Nencki Institute of Experimental Biology, Polish Academy of Sciences; Pracownia Obrazowania Mózgu, Instytut Nenckiego, Polska Akademia Nauk prowadzi badania naukowe z wykorzystaniem rezonansu magnetycznego">
 </head>
 <body>
@@ -82,9 +83,11 @@
   {% get_random_photos %}
 
   <div style="display: flex; justify-content: space-between; margin-top: 15px; margin-bottom: 15px">
-  <div><a href="https://pl-pl.facebook.com/lobi.nencki/"><img src="{% static 'images/fb_logo.png' %}" style="height: 60px; width: 60px"/></a></div>
-  <div><a href="https://github.com/nencki-lobi"><img src="{% static 'images/GitHub-Mark-120px-plus.png' %}" style="height: 60px; width: 60px"/></a></div>
-  <div><a href="{{SERVER_URL}}/team"><img src="{% static 'images/contact.png' %}" style="height: 60px; width: 60px"/></a></div>
+    <a href="https://www.facebook.com/lobi.nencki/" class="fa fa-facebook fa-4x" style="color: black;"></a>
+    <a href="https://twitter.com/Lobi_Nencki" class="fa fa-twitter fa-4x" style="color: black;"></a>
+    <a href="https://github.com/nencki-lobi" class="fa fa-github fa-4x" style="color: black;"></a>
+    <a href="{{SERVER_URL}}/team" class="fa fa-envelope fa-4x" style="color: black;"></a>
+
   </div>
 
 </div>
